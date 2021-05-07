@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { useEffect } from 'react';
+import { url } from '../api/constants';
 
 const App = () => {
   useEffect(() => {
@@ -11,7 +12,7 @@ const App = () => {
   });
   return (
     <h1>
-      Hello React in TypeScript + Jest + React Testing Library + Storybook
+      URL: {url}
     </h1>
   );
 };
