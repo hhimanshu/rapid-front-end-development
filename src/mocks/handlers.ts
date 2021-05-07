@@ -14,9 +14,6 @@ export const handlers = [
         context.json({ errorMessage: 'Not Authenticated' })
       );
     }
-    return res(
-      context.status(200),
-      context.json({ message: 'Hello there!'})
-    )
+    return res(context.status(200), context.json({ message: 'Hello there!' }));
   }),
 ];
