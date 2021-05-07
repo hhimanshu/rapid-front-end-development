@@ -1,13 +1,24 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const RemovePlugin = require('remove-files-webpack-plugin');
 
 module.exports = {
   entry: {
     index: './src/index.tsx',
   },
   plugins: [
-    new CleanWebpackPlugin(),
+    new RemovePlugin({
+      before: {
+        // expects what your output folder is `dist`.
+        test: [
+          {
+            folder: './dist',
+            method: () => true,
+          },
+        ],
+      },
+      exclude: ['./dist/mockServiceWorker.js'],
+    }),
     new HtmlWebpackPlugin({
       template: path.join(__dirname, 'src', 'index.html'),
     }),
