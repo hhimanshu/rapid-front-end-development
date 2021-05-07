@@ -1,10 +1,17 @@
+### To Do
+- [ ] Support for mock, and staging API starter commands
+    - [ ] transparent API URLs based on environments
+- [ ] MSW related automated tests
+
 ### What it contains
-- ReactJS support with TypeScript
-- Testing support using Jest and React Testing Library
-- Formatting support using Prettier
-- ESLint support
-- Ability to collect code coverage via Jest
-- Support for Storybook
+- [x] ReactJS support with TypeScript
+- [x] Testing support using Jest and React Testing Library
+- [x] Formatting support using Prettier
+- [x] ESLint support
+- [x] Ability to collect code coverage via Jest
+- [x] Support for Storybook
+- [x] [Mock Service Worker](https://mswjs.io/) integration
+
 
 ### Commands
 - `npm i` to install dependencies.
