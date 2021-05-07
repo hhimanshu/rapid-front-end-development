@@ -13,8 +13,8 @@ module.exports = {
         test: [
           {
             folder: './dist',
-            method: (absoluteItemPath) => {
-              return !absoluteItemPath.endsWith("mockServiceWorker.js")
+            method: absoluteItemPath => {
+              return !absoluteItemPath.endsWith('mockServiceWorker.js');
             },
           },
         ],
