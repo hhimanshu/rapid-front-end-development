@@ -18,7 +18,7 @@
 - `npm start` to develop locally.
 - `npm test` to test and see the code coverage.
 - `npm run build` to create a production build.
-- `npx serve dist -l 6666` to serve production build on port `6666`.
+- `npx run prod` to serve production build.
 - `npm run storybook` to start storybook in development mode.
 - `npm run build-storybook` to create production build for storybook.
 - `npx serve storybook-static -l 5858` to serve production build for storybook on port `5858`.
