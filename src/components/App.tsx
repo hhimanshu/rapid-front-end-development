@@ -10,10 +10,6 @@ const App = () => {
 
     fetch('/user').then(r => console.log(r.status));
   });
-  return (
-    <h1>
-      URL: {url}
-    </h1>
-  );
+  return <h1>URL: {url}</h1>;
 };
 export default App;

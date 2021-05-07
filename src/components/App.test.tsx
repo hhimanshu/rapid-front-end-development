@@ -4,7 +4,7 @@ import App from './App';
 import sum from '../sum';
 
 // @ts-ignore
-global.fetch = jest.fn(() => Promise.resolve("OK"));
+global.fetch = jest.fn(() => Promise.resolve('OK'));
 
 describe('A test', () => {
   it('2 + 2 = 4', () => {
