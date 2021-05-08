@@ -4,7 +4,7 @@ import App from './App';
 import sum from '../sum';
 
 // @ts-ignore
-global.fetch = jest.fn(() => Promise.resolve("OK"));
+global.fetch = jest.fn(() => Promise.resolve('OK'));
 
 describe('A test', () => {
   it('2 + 2 = 4', () => {
@@ -15,9 +15,8 @@ describe('A test', () => {
 describe('Test App Component', () => {
   it('should display h1', () => {
     render(<App />);
-    const h1 = screen.getByRole('heading');
-    expect(h1.innerHTML).toEqual(
-      'Hello React in TypeScript + Jest + React Testing Library + Storybook'
-    );
+    const headings = screen.getAllByRole('heading');
+    expect(headings).toHaveLength(2);
+    expect(headings[0].innerHTML).toContain('URL');
   });
 });

@@ -9,6 +9,7 @@
     "dev": "webpack --config webpack.dev.js",
     "start": "webpack serve --open --config webpack.dev.js ",
     "build": "webpack --config webpack.prod.js",
+    "prod": "npm run build && npx serve dist",
     "lint": "eslint -c .eslintrc.js --ext .ts src",
     "format": "prettier --write .",
     "postinstall": "husky install",
