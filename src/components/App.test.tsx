@@ -15,7 +15,8 @@ describe('A test', () => {
 describe('Test App Component', () => {
   it('should display h1', () => {
     render(<App />);
-    const h1 = screen.getByRole('heading');
-    expect(h1.innerHTML).toContain('URL');
+    const headings = screen.getAllByRole('heading');
+    expect(headings).toHaveLength(2);
+    expect(headings[0].innerHTML).toContain('URL');
   });
 });
