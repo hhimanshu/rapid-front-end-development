@@ -13,7 +13,7 @@ const hostName = isHostLocal
 
 export const url = `${hostName}/api`;
 
-type BusinessRoutes = 'businesses' | 'randomBusiness';
+export type BusinessRoutes = 'businesses' | 'randomBusiness';
 
 export const Routes: Map<BusinessRoutes, string> = new Map<
   BusinessRoutes,
