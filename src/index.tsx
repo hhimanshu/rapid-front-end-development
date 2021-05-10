@@ -11,6 +11,11 @@ if (isHostLocal) {
 }
 
 const client = new QueryClient();
+client.setDefaultOptions({
+  queries: {
+    staleTime: 5000, // All configurations are available at https://react-query.tanstack.com/reference/QueryClient#_top
+  },
+});
 const app = (
   <QueryClientProvider client={client}>
     <App />

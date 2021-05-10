@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { useEffect, useState } from 'react';
 import { url } from '../api/constants';
 import { getBusinesses, getRandomBusiness } from '../api/businesses';
 
