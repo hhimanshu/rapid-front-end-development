@@ -1,6 +1,6 @@
 import { getBusinesses, getRandomBusiness } from '../api/businesses';
-import { url } from '../api/constants';
 import * as React from 'react';
+import { BusinessesView } from '../components/BusinessesView';
 
 export const BusinessContainer = () => {
   const {
@@ -16,31 +16,17 @@ export const BusinessContainer = () => {
   } = getRandomBusiness();
 
   return (
-    <>
-      <h1>URL: {url}</h1>
-      <div>
-        {isRandomBusinessLoading && <p>Loading Random Business</p>}
-        {businessError && <p>Error in loading random business</p>}
-        {randomBusiness && (
-          <>
-            <h3>Random Business</h3>
-            <div role={'group'}>{JSON.stringify(randomBusiness)}</div>
-          </>
-        )}
-      </div>
-      <hr />
-      <div>
-        {isAllBusinessesLoading && <p>Loading all businesses</p>}
-        {businessesError && <p>Error in loading all businesses</p>}
-        {businesses && (
-          <div role={'group'}>
-            <h3>All Businesses</h3>
-            {businesses.map(b => (
-              <p key={b.url}>{JSON.stringify(b)}</p>
-            ))}
-          </div>
-        )}
-      </div>
-    </>
+    <BusinessesView
+      businesses={{
+        isLoading: isAllBusinessesLoading,
+        error: businessesError,
+        data: businesses,
+      }}
+      randomBusiness={{
+        isLoading: isRandomBusinessLoading,
+        error: businessError,
+        data: randomBusiness,
+      }}
+    />
   );
 };

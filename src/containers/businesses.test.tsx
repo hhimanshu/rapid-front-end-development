@@ -1,15 +1,8 @@
 import { render, screen } from '@testing-library/react';
 import React from 'react';
-import sum from '../sum';
 import { getBusinesses } from '../api/businesses';
 import { businesses as businessesData } from '../mocks/data/businesses/all';
 import { BusinessContainer } from './businesses';
-
-describe('A test', () => {
-  it('2 + 2 = 4', () => {
-    expect(sum(2, 2)).toEqual(4);
-  });
-});
 
 describe('Test App Component', () => {
   it('should display businesses', () => {
