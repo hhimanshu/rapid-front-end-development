@@ -40,10 +40,6 @@ module.exports = {
         test: /\.css$/i,
         use: ['style-loader', 'css-loader'],
       },
-      {
-        test: /\.ttf$/i,
-        type: 'asset/resource',
-      },
     ],
   },
   resolve: {

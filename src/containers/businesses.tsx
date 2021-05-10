@@ -1,8 +1,8 @@
-import * as React from 'react';
-import { url } from '../api/constants';
 import { getBusinesses, getRandomBusiness } from '../api/businesses';
+import { url } from '../api/constants';
+import * as React from 'react';
 
-const App = () => {
+export const BusinessContainer = () => {
   const {
     isLoading: isAllBusinessesLoading,
     error: businessesError,
@@ -44,4 +44,3 @@ const App = () => {
     </>
   );
 };
-export default App;
