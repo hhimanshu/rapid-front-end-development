@@ -1,38 +1,46 @@
 import * as React from 'react';
-import { useEffect, useState } from 'react';
 import { url } from '../api/constants';
+import { getBusinesses, getRandomBusiness } from '../api/businesses';
 
 const App = () => {
-  const [businesses, setBusinesses] = useState([]);
-  const [randomBusiness, setRandomBusiness] = useState({});
+  const {
+    isLoading: isAllBusinessesLoading,
+    error: businessesError,
+    data: businesses,
+  } = getBusinesses();
 
-  useEffect(() => {
-    fetch(`${url}/businesses`, {})
-      .then(r => r.json())
-      .then(d => setBusinesses(d.data.search.business));
+  const {
+    isLoading: isRandomBusinessLoading,
+    error: businessError,
+    data: randomBusiness,
+  } = getRandomBusiness();
 
-    fetch(`${url}/business/random`)
-      .then(r => r.json())
-      .then(d => setRandomBusiness(d));
-  }, []);
   return (
     <>
       <h1>URL: {url}</h1>
-      {randomBusiness && (
-        <>
-          <h3>Trending Business</h3>
-          {JSON.stringify(randomBusiness)}
-        </>
-      )}
+      <div>
+        {isRandomBusinessLoading && <p>Loading Random Business</p>}
+        {businessError && <p>Error in loading random business</p>}
+        {randomBusiness && (
+          <>
+            <h3>Random Business</h3>
+            <div role={'group'}>{JSON.stringify(randomBusiness)}</div>
+          </>
+        )}
+      </div>
       <hr />
-      {businesses.length > 0 && (
-        <>
-          <h3>All Businesses</h3>
-          {businesses.map(b => (
-            <p key={b.url}>{JSON.stringify(b)}</p>
-          ))}
-        </>
-      )}
+      <div>
+        {isAllBusinessesLoading && <p>Loading all businesses</p>}
+        {businessesError && <p>Error in loading all businesses</p>}
+        {businesses && (
+          <div role={'group'}>
+            <h3>All Businesses</h3>
+            {businesses.map(b => (
+              <p key={b.url}>{JSON.stringify(b)}</p>
+            ))}
+          </div>
+        )}
+      </div>
     </>
   );
 };

@@ -1,6 +1,6 @@
 export const isHostLocal: boolean = new Set<string>([
   'development',
-  'testing',
+  'test',
 ]).has(process.env.NODE_ENV);
 const isHostStaged: boolean = process.env.NODE_ENV === 'staging';
 
