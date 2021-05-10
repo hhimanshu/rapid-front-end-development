@@ -13,7 +13,7 @@ describe('A test', () => {
 
 describe('Test App Component', () => {
   it('should display businesses', () => {
-    // mock react-query call since we are not testing it here
+    // mock react-query call & return fetch output from mocked data
     const businesses = require('../api/businesses');
     const getBusinessesMock = jest.spyOn(businesses, 'getBusinesses');
     const randomBusinessMock = jest.spyOn(businesses, 'getRandomBusiness');
@@ -27,11 +27,21 @@ describe('Test App Component', () => {
     });
 
     render(<App />);
-    const headings = screen.getAllByRole('heading');
-    expect(headings).toHaveLength(3);
 
-    expect(headings[0].innerHTML).toContain('URL');
-    expect(headings[1].innerHTML).toContain('Random Business');
-    expect(headings[2].innerHTML).toContain('All Businesses');
+    {
+      const headings = screen.getAllByRole('heading');
+      expect(headings).toHaveLength(3);
+
+      expect(headings[0].innerHTML).toContain('URL');
+      console.log(headings[0].innerHTML);
+      expect(headings[1].innerHTML).toContain('Random Business');
+      expect(headings[2].innerHTML).toContain('All Businesses');
+    }
+    {
+      const groups = screen.getAllByRole('group');
+      expect(groups).toHaveLength(2);
+      expect(groups[0].innerHTML).toContain('url');
+      expect(groups[1].children).toHaveLength(51); // 1 h3, 50 businesses
+    }
   });
 });
