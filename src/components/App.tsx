@@ -23,8 +23,8 @@ const App = () => {
         {businessError && <p>Error in loading random business</p>}
         {randomBusiness && (
           <>
-            <h3>Trending Business</h3>
-            {JSON.stringify(randomBusiness)}
+            <h3>Random Business</h3>
+            <div role={'group'}>{JSON.stringify(randomBusiness)}</div>
           </>
         )}
       </div>
@@ -33,12 +33,12 @@ const App = () => {
         {isAllBusinessesLoading && <p>Loading all businesses</p>}
         {businessesError && <p>Error in loading all businesses</p>}
         {businesses && (
-          <>
+          <div role={'group'}>
             <h3>All Businesses</h3>
             {businesses.map(b => (
               <p key={b.url}>{JSON.stringify(b)}</p>
             ))}
-          </>
+          </div>
         )}
       </div>
     </>
