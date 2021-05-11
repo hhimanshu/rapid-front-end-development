@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react';
 import React from 'react';
 import { getBusinesses } from '../api/businesses';
 import { businesses as businessesData } from '../mocks/data/businesses/all';
-import { BusinessContainer } from './businesses';
+import { BusinessesContainer } from './businesses';
 
 describe('Test App Component', () => {
   it('should display businesses', () => {
@@ -19,14 +19,13 @@ describe('Test App Component', () => {
       return { isLoading: false, data: allBusinesses[0] };
     });
 
-    render(<BusinessContainer />);
+    render(<BusinessesContainer />);
 
     {
       const headings = screen.getAllByRole('heading');
       expect(headings).toHaveLength(3);
 
       expect(headings[0].innerHTML).toContain('URL');
-      console.log(headings[0].innerHTML);
       expect(headings[1].innerHTML).toContain('Random Business');
       expect(headings[2].innerHTML).toContain('All Businesses');
     }

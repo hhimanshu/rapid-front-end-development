@@ -2,7 +2,7 @@ import { getBusinesses, getRandomBusiness } from '../api/businesses';
 import * as React from 'react';
 import { BusinessesView } from '../components/BusinessesView';
 
-export const BusinessContainer = () => {
+export const BusinessesContainer = () => {
   const {
     isLoading: isAllBusinessesLoading,
     error: businessesError,

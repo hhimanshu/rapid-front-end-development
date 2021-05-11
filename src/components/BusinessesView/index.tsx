@@ -6,12 +6,12 @@ import { url } from '../../api/constants';
 interface BusinessesProp {
   businesses: {
     isLoading: boolean;
-    error: Error;
+    error?: Error;
     data: Businesses;
   };
   randomBusiness: {
     isLoading: boolean;
-    error: Error;
+    error?: Error;
     data: Business;
   };
 }

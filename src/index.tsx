@@ -3,7 +3,7 @@ import * as ReactDOM from 'react-dom';
 import { isHostLocal } from './api/constants';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { ChakraProvider } from '@chakra-ui/react';
-import { BusinessContainer } from './containers/businesses';
+import { BusinessesContainer } from './containers/businesses';
 
 if (isHostLocal) {
   const { worker } = require('./mocks/browser');
@@ -19,7 +19,7 @@ client.setDefaultOptions({
 const Root = (
   <QueryClientProvider client={client}>
     <ChakraProvider>
-      <BusinessContainer />
+      <BusinessesContainer />
     </ChakraProvider>
   </QueryClientProvider>
 );
