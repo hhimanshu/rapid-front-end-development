@@ -27,17 +27,13 @@ describe('Test App Component', () => {
 
     {
       const headings = screen.getAllByRole('heading');
-      expect(headings).toHaveLength(3);
-
+      expect(headings).toHaveLength(1);
       expect(headings[0].innerHTML).toContain('URL');
-      expect(headings[1].innerHTML).toContain('Random Business');
-      expect(headings[2].innerHTML).toContain('All Businesses');
     }
     {
       const groups = screen.getAllByRole('group');
-      expect(groups).toHaveLength(2);
-      expect(groups[0].innerHTML).toContain('url');
-      expect(groups[1].children).toHaveLength(11); // 1 h3, 10 businesses
+      expect(groups).toHaveLength(1);
+      expect(groups[0].children).toHaveLength(10); //10 businesses
     }
   });
 });
