@@ -18,6 +18,7 @@ import {
 } from '@chakra-ui/react';
 import { url } from '../../api/constants';
 import { ExternalLinkIcon } from '@chakra-ui/icons';
+import { printLocation } from '../../shared/utility';
 
 interface BusinessProp {
   isLoading: boolean;
@@ -88,8 +89,8 @@ const DisplayTable = ({ rows, hideFooter = false }: DisplayTableProps) => (
       <Tr>
         <Th>Name</Th>
         <Th>Phone</Th>
-        <Th>Categories</Th>
         <Th>Location</Th>
+        <Th>Categories</Th>
       </Tr>
     </Thead>
     <Tbody role={'group'}>
@@ -101,8 +102,8 @@ const DisplayTable = ({ rows, hideFooter = false }: DisplayTableProps) => (
             </Link>
           </Td>
           <Td>{row.phone}</Td>
+          <Td>{printLocation(row.location)}</Td>
           <Td>{row.categories.map(c => c.title).join(', ')}</Td>
-          <Td>{JSON.stringify(row.location)}</Td>
         </Tr>
       ))}
     </Tbody>
@@ -111,8 +112,8 @@ const DisplayTable = ({ rows, hideFooter = false }: DisplayTableProps) => (
         <Tr>
           <Th>Name</Th>
           <Th>Phone</Th>
-          <Th>Categories</Th>
           <Th>Location</Th>
+          <Th>Categories</Th>
         </Tr>
       </Tfoot>
     )}
