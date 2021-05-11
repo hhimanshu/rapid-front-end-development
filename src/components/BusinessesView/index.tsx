@@ -44,8 +44,8 @@ export const BusinessesView = ({
     <Box>
       <Tabs variant='soft-rounded' colorScheme='telegram'>
         <TabList>
-          <Tab>All Businesses</Tab>
-          <Tab>Random Business</Tab>
+          <Tab role={'group'}>All Businesses</Tab>
+          <Tab role={'group'}>Random Business</Tab>
         </TabList>
         <TabPanels>
           <TabPanel>

@@ -26,11 +26,6 @@ describe('Test App Component', () => {
     );
 
     {
-      const headings = screen.getAllByRole('heading');
-      expect(headings).toHaveLength(1);
-      expect(headings[0].innerHTML).toContain('URL');
-    }
-    {
       const groups = screen.getAllByRole('group');
       expect(groups).toHaveLength(1);
       expect(groups[0].children).toHaveLength(10); //10 businesses
