@@ -1,9 +1,9 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import './styles.css';
-import App from './components/App';
 import { isHostLocal } from './api/constants';
 import { QueryClient, QueryClientProvider } from 'react-query';
+import { ChakraProvider } from '@chakra-ui/react';
+import { App } from './App';
 
 if (isHostLocal) {
   const { worker } = require('./mocks/browser');
@@ -11,15 +11,18 @@ if (isHostLocal) {
 }
 
 const client = new QueryClient();
+// All configurations are available at https://react-query.tanstack.com/reference/QueryClient#_top
 client.setDefaultOptions({
   queries: {
-    staleTime: 5000, // All configurations are available at https://react-query.tanstack.com/reference/QueryClient#_top
+    staleTime: 5000,
   },
 });
-const app = (
+const Root = (
   <QueryClientProvider client={client}>
-    <App />
+    <ChakraProvider>
+      <App />
+    </ChakraProvider>
   </QueryClientProvider>
 );
 
-ReactDOM.render(app, document.getElementById('root'));
+ReactDOM.render(Root, document.getElementById('root'));

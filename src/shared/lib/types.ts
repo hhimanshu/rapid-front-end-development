@@ -4,7 +4,7 @@ export interface Business {
   phone: string;
   categories: [Category];
   location: Location;
-  hoursType: [HoursType];
+  hours: [HoursType];
 }
 
 export type Businesses = [Business];
@@ -19,7 +19,7 @@ export interface Location {
   address3: string;
   city: string;
   state: string;
-  postalCode: string;
+  postal_code: string;
 }
 
 export interface HoursType {
