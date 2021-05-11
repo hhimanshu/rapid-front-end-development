@@ -1,7 +1,23 @@
 import React from 'react';
 import { Business, Businesses } from '../../shared/lib/types';
-import { Box, Tab, TabList, TabPanel, TabPanels, Tabs } from '@chakra-ui/react';
+import {
+  Box,
+  Link,
+  Tab,
+  Table,
+  TabList,
+  TabPanel,
+  TabPanels,
+  Tabs,
+  Tbody,
+  Td,
+  Tfoot,
+  Th,
+  Thead,
+  Tr,
+} from '@chakra-ui/react';
 import { url } from '../../api/constants';
+import { ExternalLinkIcon } from '@chakra-ui/icons';
 
 interface BusinessProp {
   isLoading: boolean;
@@ -49,13 +65,7 @@ const ShowBusinesses = ({ isLoading, error, data }: BusinessProp) => (
   <div>
     {isLoading && <p>Loading all businesses</p>}
     {error && <p>Error in loading all businesses</p>}
-    {data && (
-      <div role={'group'}>
-        {data.map(b => (
-          <p key={b.url}>{JSON.stringify(b)}</p>
-        ))}
-      </div>
-    )}
+    {data && <DisplayTable rows={data} />}
   </div>
 );
 
@@ -63,6 +73,48 @@ const ShowRandomBusiness = ({ isLoading, error, data }: RandomBusinessProp) => (
   <div>
     {isLoading && <p>Loading Random Business</p>}
     {error && <p>Error in loading random business</p>}
-    {data && <div role={'group'}>{JSON.stringify(data)}</div>}
+    {data && <DisplayTable rows={[data]} hideFooter />}
   </div>
+);
+
+interface DisplayTableProps {
+  rows: [Omit<Business, 'hours'>];
+  hideFooter?: boolean;
+}
+
+const DisplayTable = ({ rows, hideFooter = false }: DisplayTableProps) => (
+  <Table variant='simple'>
+    <Thead>
+      <Tr>
+        <Th>Name</Th>
+        <Th>Phone</Th>
+        <Th>Categories</Th>
+        <Th>Location</Th>
+      </Tr>
+    </Thead>
+    <Tbody role={'group'}>
+      {rows.map(row => (
+        <Tr key={row.url}>
+          <Td>
+            <Link href={row.url} isExternal>
+              {row.name} <ExternalLinkIcon mx={'2px'} />
+            </Link>
+          </Td>
+          <Td>{row.phone}</Td>
+          <Td>{row.categories.map(c => c.title).join(', ')}</Td>
+          <Td>{JSON.stringify(row.location)}</Td>
+        </Tr>
+      ))}
+    </Tbody>
+    {!hideFooter && (
+      <Tfoot>
+        <Tr>
+          <Th>Name</Th>
+          <Th>Phone</Th>
+          <Th>Categories</Th>
+          <Th>Location</Th>
+        </Tr>
+      </Tfoot>
+    )}
+  </Table>
 );
