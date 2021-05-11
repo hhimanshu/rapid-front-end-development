@@ -18,7 +18,7 @@ describe('Test App Component', () => {
       data: all[0] as Business,
     };
 
-    const { container } = render(
+    render(
       <BusinessesView
         businesses={businessesData}
         randomBusiness={randomBusinessData}

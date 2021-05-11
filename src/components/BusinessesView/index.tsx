@@ -16,7 +16,6 @@ import {
   Thead,
   Tr,
 } from '@chakra-ui/react';
-import { url } from '../../api/constants';
 import { ExternalLinkIcon } from '@chakra-ui/icons';
 import { printLocation } from '../../shared/utility';
 
@@ -43,8 +42,7 @@ export const BusinessesView = ({
 }: BusinessesProp): JSX.Element => {
   return (
     <Box>
-      <h1>URL: {url}</h1>
-      <Tabs variant='soft-rounded' colorScheme='green'>
+      <Tabs variant='soft-rounded' colorScheme='telegram'>
         <TabList>
           <Tab>All Businesses</Tab>
           <Tab>Random Business</Tab>

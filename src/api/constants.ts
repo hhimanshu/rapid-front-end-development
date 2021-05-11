@@ -3,6 +3,7 @@ export const isHostLocal: boolean = new Set<string>([
   'test',
 ]).has(process.env.NODE_ENV);
 const isHostStaged: boolean = process.env.NODE_ENV === 'staging';
+export const isHostProduction: boolean = process.env.NODE_ENV === 'production';
 
 const hostName = isHostLocal
   ? ''
