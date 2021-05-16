@@ -8,11 +8,8 @@ export const BUSINESS_HANDLERS = [
   }),
 
   rest.get(`${url}/business/random`, (req, res, context) => {
-    const allBusinesses = businesses.data.search.business;
+    const allBusinesses = businesses;
     const randomIndex = Math.floor(Math.random() * allBusinesses.length) + 1;
-    return res(
-      context.status(200),
-      context.json({ businesses: allBusinesses[randomIndex] })
-    );
+    return res(context.status(200), context.json(allBusinesses[randomIndex]));
   }),
 ];
