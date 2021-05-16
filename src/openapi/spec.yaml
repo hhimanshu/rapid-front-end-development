@@ -15,7 +15,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "./schema/businesses.yaml#/Businesses"
+                $ref: './schema/businesses.yaml#/Businesses'
   /business/random:
     get:
       summary: Returns a random business from a list of 50 businesses
@@ -25,4 +25,4 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "./schema/business.yaml#/Business"
+                $ref: './schema/business.yaml#/Business'
