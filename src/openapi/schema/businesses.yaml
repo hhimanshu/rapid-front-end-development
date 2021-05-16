@@ -1,0 +1,5 @@
+Businesses:
+  type: array
+  default: [ ]
+  items:
+    $ref: './business.yaml#/Business'

@@ -1,0 +1,62 @@
+Business:
+  type: object
+  properties:
+    name:
+      description: the name of the business
+      type: string
+    url:
+      description: the URL of the business
+      type: string
+    categories:
+      description: the categories this business belongs to
+      type: array
+      default: [ ]
+      items:
+        $ref: '#/Category'
+    location:
+      description: the pyhysical address of the business
+      type: object
+      $ref: '#/Location'
+    hours:
+      description: the hours of operation for this business
+      type: array
+      default: [ ]
+      items:
+        $ref: '#/Hour'
+
+Category:
+  type: object
+  properties:
+    title:
+      description: name of the category
+      example: Thai
+      type: string
+
+Location:
+  type: object
+  properties:
+    address1:
+      description: the address1 for the business
+      type: string
+    address2:
+      description: the address2 for the business
+      type: string
+    address3:
+      description: the address3 for the business
+      type: string
+    city:
+      description: the city for the business
+      type: string
+    state:
+      description: the state where business is located
+      type: string
+    postal_code:
+      description: the postal code for the business
+      type: string
+
+Hour:
+  type: object
+  properties:
+    hours_type:
+      description: Is this business has regular or special hours
+      type: string

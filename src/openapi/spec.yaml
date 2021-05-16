@@ -1,0 +1,28 @@
+openapi: 3.0.0
+info:
+  title: Businesses API
+  description: Information about businesses
+  version: 0.0.1
+servers:
+  - url: https://api.businesses.com/
+paths:
+  /businesses:
+    get:
+      summary: Returns 50 businesses
+      responses:
+        '200':
+          description: A JSON object with the results
+          content:
+            application/json:
+              schema:
+                $ref: "./schema/businesses.yaml#/Businesses"
+  /business/random:
+    get:
+      summary: Returns a random business from a list of 50 businesses
+      responses:
+        '200':
+          description: A JSON object for a random business
+          content:
+            application/json:
+              schema:
+                $ref: "./schema/business.yaml#/Business"
