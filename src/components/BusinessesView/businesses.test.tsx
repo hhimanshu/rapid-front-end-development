@@ -6,7 +6,7 @@ import { businesses as allBusinesses } from '../../mocks/data/businesses/all';
 
 describe('Test App Component', () => {
   it('should display businesses when no error', () => {
-    const all: Businesses = allBusinesses.data.search.business as Businesses;
+    const all: Businesses = allBusinesses as Businesses;
 
     const businessesData = {
       isLoading: false,

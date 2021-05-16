@@ -11,7 +11,7 @@ describe('Test App Component', () => {
     const getBusinessesMock = jest.spyOn(businesses, 'getBusinesses');
     const randomBusinessMock = jest.spyOn(businesses, 'getRandomBusiness');
 
-    let allBusinesses = businessesData.data.search.business;
+    let allBusinesses = businessesData;
     getBusinessesMock.mockImplementation(() => {
       return { isLoading: false, data: allBusinesses };
     });
