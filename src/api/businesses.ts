@@ -1,10 +1,13 @@
 import { useQuery } from 'react-query';
 import { url } from './constants';
 import { Business, Businesses } from '../shared/lib/types';
+import { Configuration, DefaultApi } from '../openapi/generated';
+
+const api = new DefaultApi(new Configuration({ basePath: url }));
 
 export const getBusinesses = () =>
   useQuery<Businesses, Error>('businesses', () =>
-    fetch(`${url}/businesses`).then(res => res.json())
+    api.businessesGet().then(d => d as Businesses)
   );
 
 export const getRandomBusiness = () =>
