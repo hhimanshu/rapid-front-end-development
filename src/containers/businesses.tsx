@@ -23,7 +23,7 @@ export const BusinessesContainer = () => {
       businesses={{
         isLoading: isAllBusinessesLoading,
         error: businessesError as Error,
-        data: businesses?.data as Busineses,
+        data: businesses?.data as Businesses,
       }}
       randomBusiness={{
         isLoading: isRandomBusinessLoading,
