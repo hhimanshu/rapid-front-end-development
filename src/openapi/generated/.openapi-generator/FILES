@@ -1,0 +1,10 @@
+.openapi-generator-ignore
+apis/DefaultApi.ts
+apis/index.ts
+index.ts
+models/Business.ts
+models/Category.ts
+models/Hour.ts
+models/Location.ts
+models/index.ts
+runtime.ts
