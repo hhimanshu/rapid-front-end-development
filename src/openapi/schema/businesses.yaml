@@ -1,5 +1,8 @@
-Businesses:
-  type: array
-  default: [ ]
-  items:
-    $ref: './business.yaml#/Business'
+openapi: 3.0.0
+components:
+  schemas:
+    Businesses:
+      type: array
+      default: [ ]
+      items:
+        $ref: './business.yaml#/components/schemas/Business'
