@@ -17,7 +17,7 @@ export const BusinessesContainer = () => {
   const {
     isLoading: isRandomBusinessLoading,
     error: businessError,
-    data: randomBusines,
+    data: randomBusiness,
   } = useGetBusinessRandom({ axios: { baseURL: url } });
   return (
     <BusinessesView
