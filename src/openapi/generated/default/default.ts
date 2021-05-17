@@ -16,30 +16,28 @@ type AsyncReturnType<T extends (...args: any) => Promise<any>> = T extends (
   ? R
   : any;
 
-export const getApiBusinesses = <Data = unknown>(
-  options?: AxiosRequestConfig
-) => {
+export const getBusinesses = <Data = unknown>(options?: AxiosRequestConfig) => {
   return axios.get<Data extends unknown ? Businesses : Data>(
-    `/api/businesses`,
+    `/businesses`,
     options
   );
 };
 
-export const getGetApiBusinessesQueryKey = () => [`/api/businesses`];
+export const getGetBusinessesQueryKey = () => [`/businesses`];
 
-export const useGetApiBusinesses = <
+export const useGetBusinesses = <
   Data extends unknown = unknown,
   Error extends unknown = unknown
 >(options?: {
-  query?: UseQueryOptions<AsyncReturnType<typeof getApiBusinesses>, Error>;
+  query?: UseQueryOptions<AsyncReturnType<typeof getBusinesses>, Error>;
   axios?: AxiosRequestConfig;
 }) => {
-  const queryKey = getGetApiBusinessesQueryKey();
+  const queryKey = getGetBusinessesQueryKey();
   const { query: queryOptions, axios: axiosOptions } = options || {};
 
-  const query = useQuery<AsyncReturnType<typeof getApiBusinesses>, Error>(
+  const query = useQuery<AsyncReturnType<typeof getBusinesses>, Error>(
     queryKey,
-    () => getApiBusinesses<Data>(axiosOptions),
+    () => getBusinesses<Data>(axiosOptions),
     queryOptions
   );
 
@@ -49,30 +47,30 @@ export const useGetApiBusinesses = <
   };
 };
 
-export const getApiBusinessRandom = <Data = unknown>(
+export const getBusinessRandom = <Data = unknown>(
   options?: AxiosRequestConfig
 ) => {
   return axios.get<Data extends unknown ? Business : Data>(
-    `/api/business/random`,
+    `/business/random`,
     options
   );
 };
 
-export const getGetApiBusinessRandomQueryKey = () => [`/api/business/random`];
+export const getGetBusinessRandomQueryKey = () => [`/business/random`];
 
-export const useGetApiBusinessRandom = <
+export const useGetBusinessRandom = <
   Data extends unknown = unknown,
   Error extends unknown = unknown
 >(options?: {
-  query?: UseQueryOptions<AsyncReturnType<typeof getApiBusinessRandom>, Error>;
+  query?: UseQueryOptions<AsyncReturnType<typeof getBusinessRandom>, Error>;
   axios?: AxiosRequestConfig;
 }) => {
-  const queryKey = getGetApiBusinessRandomQueryKey();
+  const queryKey = getGetBusinessRandomQueryKey();
   const { query: queryOptions, axios: axiosOptions } = options || {};
 
-  const query = useQuery<AsyncReturnType<typeof getApiBusinessRandom>, Error>(
+  const query = useQuery<AsyncReturnType<typeof getBusinessRandom>, Error>(
     queryKey,
-    () => getApiBusinessRandom<Data>(axiosOptions),
+    () => getBusinessRandom<Data>(axiosOptions),
     queryOptions
   );
 

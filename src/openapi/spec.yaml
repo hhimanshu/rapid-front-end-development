@@ -6,7 +6,7 @@ info:
 servers:
   - url: https://api.businesses.com/
 paths:
-  /api/businesses:
+  /businesses:
     get:
       summary: Returns 50 businesses
       responses:
@@ -16,7 +16,7 @@ paths:
             application/json:
               schema:
                 $ref: './schema/businesses.yaml#/components/schemas/Businesses'
-  /api/business/random:
+  /business/random:
     get:
       summary: Returns a random business from a list of 50 businesses
       responses:

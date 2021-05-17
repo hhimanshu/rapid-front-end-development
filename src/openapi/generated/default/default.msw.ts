@@ -10,12 +10,26 @@ import faker from 'faker';
 import type { Businesses } from '../model/schema-businesses';
 import type { Business } from '../model/schema-business';
 
-export const getGetApiBusinessesMock = () =>
-  [...Array(faker.datatype.number({ min: 1, max: 10 }))].map(() => ({
+export const getGetBusinessesMock = () =>
+  [
+    ...Array(
+      faker.datatype.number({
+        min: 1,
+        max: 10,
+      })
+    ),
+  ].map(() => ({
     name: faker.helpers.randomize([faker.random.word(), undefined]),
     url: faker.helpers.randomize([faker.random.word(), undefined]),
     categories: faker.helpers.randomize([
-      [...Array(faker.datatype.number({ min: 1, max: 10 }))].map(() => ({
+      [
+        ...Array(
+          faker.datatype.number({
+            min: 1,
+            max: 10,
+          })
+        ),
+      ].map(() => ({
         title: faker.helpers.randomize([faker.random.word(), undefined]),
       })),
       undefined,
@@ -32,18 +46,32 @@ export const getGetApiBusinessesMock = () =>
       undefined,
     ]),
     hours: faker.helpers.randomize([
-      [...Array(faker.datatype.number({ min: 1, max: 10 }))].map(() => ({
+      [
+        ...Array(
+          faker.datatype.number({
+            min: 1,
+            max: 10,
+          })
+        ),
+      ].map(() => ({
         hours_type: faker.helpers.randomize([faker.random.word(), undefined]),
       })),
       undefined,
     ]),
   }));
 
-export const getGetApiBusinessRandomMock = () => ({
+export const getGetBusinessRandomMock = () => ({
   name: faker.helpers.randomize([faker.random.word(), undefined]),
   url: faker.helpers.randomize([faker.random.word(), undefined]),
   categories: faker.helpers.randomize([
-    [...Array(faker.datatype.number({ min: 1, max: 10 }))].map(() => ({
+    [
+      ...Array(
+        faker.datatype.number({
+          min: 1,
+          max: 10,
+        })
+      ),
+    ].map(() => ({
       title: faker.helpers.randomize([faker.random.word(), undefined]),
     })),
     undefined,
@@ -60,7 +88,14 @@ export const getGetApiBusinessRandomMock = () => ({
     undefined,
   ]),
   hours: faker.helpers.randomize([
-    [...Array(faker.datatype.number({ min: 1, max: 10 }))].map(() => ({
+    [
+      ...Array(
+        faker.datatype.number({
+          min: 1,
+          max: 10,
+        })
+      ),
+    ].map(() => ({
       hours_type: faker.helpers.randomize([faker.random.word(), undefined]),
     })),
     undefined,
@@ -68,18 +103,18 @@ export const getGetApiBusinessRandomMock = () => ({
 });
 
 export const getDefaultMSW = () => [
-  rest.get('*/api/businesses', (req, res, ctx) => {
+  rest.get('*/businesses', (req, res, ctx) => {
     return res(
       ctx.delay(1000),
       ctx.status(200, 'Mocked status'),
-      ctx.json(getGetApiBusinessesMock())
+      ctx.json(getGetBusinessesMock())
     );
   }),
-  rest.get('*/api/business/random', (req, res, ctx) => {
+  rest.get('*/business/random', (req, res, ctx) => {
     return res(
       ctx.delay(1000),
       ctx.status(200, 'Mocked status'),
-      ctx.json(getGetApiBusinessRandomMock())
+      ctx.json(getGetBusinessRandomMock())
     );
   }),
 ];

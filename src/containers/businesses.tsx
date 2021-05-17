@@ -1,23 +1,24 @@
 import * as React from 'react';
 import { BusinessesView } from '../components/BusinessesView';
 import {
-  useGetApiBusinesses,
-  useGetApiBusinessRandom,
+  useGetBusinesses,
+  useGetBusinessRandom,
 } from '../openapi/generated/default/default';
 import { Business, Businesses } from '../shared/lib/types';
+import { url } from '../openapi/constants';
 
 export const BusinessesContainer = () => {
   const {
     isLoading: isAllBusinessesLoading,
     error: businessesError,
     data: businesses,
-  } = useGetApiBusinesses();
+  } = useGetBusinesses({ axios: { baseURL: url } });
 
   const {
     isLoading: isRandomBusinessLoading,
     error: businessError,
-    data: randomBusiness,
-  } = useGetApiBusinessRandom();
+    data: randomBusines,
+  } = useGetBusinessRandom({ axios: { baseURL: url } });
   return (
     <BusinessesView
       businesses={{
