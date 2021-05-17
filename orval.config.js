@@ -2,8 +2,8 @@ module.exports = {
   businesses: {
     output: {
       mode: 'tags-split',
-      target: 'src/api/interface.ts',
-      schemas: 'src/openapi/model',
+      target: 'src/openapi/generated/interface.ts',
+      schemas: 'src/openapi/generated/model',
       client: 'react-query',
       mock: true,
     },

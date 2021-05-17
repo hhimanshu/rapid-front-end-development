@@ -1,31 +1,34 @@
-import { getBusinesses, getRandomBusiness } from '../api/businesses';
 import * as React from 'react';
 import { BusinessesView } from '../components/BusinessesView';
+import {
+  useGetApiBusinesses,
+  useGetApiBusinessRandom,
+} from '../openapi/generated/default/default';
+import { Business, Businesses } from '../shared/lib/types';
 
 export const BusinessesContainer = () => {
   const {
     isLoading: isAllBusinessesLoading,
     error: businessesError,
     data: businesses,
-  } = getBusinesses();
+  } = useGetApiBusinesses();
 
   const {
     isLoading: isRandomBusinessLoading,
     error: businessError,
     data: randomBusiness,
-  } = getRandomBusiness();
-
+  } = useGetApiBusinessRandom();
   return (
     <BusinessesView
       businesses={{
         isLoading: isAllBusinessesLoading,
-        error: businessesError,
-        data: businesses,
+        error: businessesError as Error,
+        data: businesses?.data as Busineses,
       }}
       randomBusiness={{
         isLoading: isRandomBusinessLoading,
-        error: businessError,
-        data: randomBusiness,
+        error: businessError as Error,
+        data: randomBusiness?.data as Business,
       }}
     />
   );

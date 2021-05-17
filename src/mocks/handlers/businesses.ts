@@ -1,6 +1,6 @@
 import { rest } from 'msw';
 import { businesses } from '../data/businesses/all';
-import { url } from '../../api/constants';
+import { url } from '../../openapi/constants';
 
 export const BUSINESS_HANDLERS = [
   rest.get(`${url}/businesses`, (req, res, context) => {

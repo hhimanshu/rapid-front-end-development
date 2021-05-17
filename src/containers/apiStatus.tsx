@@ -1,7 +1,7 @@
 import React from 'react';
 import { ApiStatusView } from '../components/ApiStatusView';
-import { isHostLocal, isHostProduction } from '../api/constants';
 import { CheckCircleIcon, WarningTwoIcon } from '@chakra-ui/icons';
+import { isHostLocal, isHostProduction } from '../openapi/constants';
 
 export const ApiStatus = () => {
   const host = isHostLocal
