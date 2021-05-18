@@ -3,6 +3,6 @@ components:
   schemas:
     Businesses:
       type: array
-      default: [ ]
+      default: []
       items:
         $ref: './business.yaml#/components/schemas/Business'

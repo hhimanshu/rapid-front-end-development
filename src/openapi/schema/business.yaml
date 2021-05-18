@@ -13,7 +13,7 @@ components:
         categories:
           description: the categories this business belongs to
           type: array
-          default: [ ]
+          default: []
           items:
             $ref: '#/components/schemas/Category'
         location:
@@ -23,7 +23,7 @@ components:
         hours:
           description: the hours of operation for this business
           type: array
-          default: [ ]
+          default: []
           items:
             $ref: '#/components/schemas/Hour'
 
