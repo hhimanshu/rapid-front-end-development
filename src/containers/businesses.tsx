@@ -1,9 +1,6 @@
 import * as React from 'react';
 import { BusinessesView } from '../components/BusinessesView';
-import {
-  useGetBusinesses,
-  useGetBusinessRandom,
-} from '../openapi/generated/default/default';
+import { useGetBusinesses, useGetBusinessRandom } from '../openapi/generated/';
 import { Business, Businesses } from '../shared/lib/types';
 import { url } from '../openapi/constants';
 
